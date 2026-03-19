@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import { Music, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
+import logo from '../assets/logo.png'
 
 const links = [
   { label: 'Trang chủ', href: '#hero' },
@@ -23,11 +24,8 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-charcoal/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#hero" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-full bg-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Music className="w-5 h-5 text-white" />
-          </div>
-          <span className="font-serif text-xl font-bold text-white">Art <span className="text-gold">Beginning</span></span>
+        <a href="#hero" className="group">
+          <img src={logo} alt="Art Beginning" className="h-12 w-auto object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" />
         </a>
 
         {/* Desktop nav */}
