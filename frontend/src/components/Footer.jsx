@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Facebook, Youtube, Instagram } from 'lucide-react'
+import { Facebook, Instagram, Mail, MapPin, Phone, Youtube } from 'lucide-react'
 import logo from '../assets/logo.png'
 
 export default function Footer() {
@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <div className="mb-4">
-            <img src={logo} alt="Art Beginning" className="h-16 w-auto object-contain" />
+            <img src={logo} alt="Art Beginning" className="h-20 w-auto object-contain" />
           </div>
           <p className="text-white/60 text-sm leading-relaxed mb-6">
             Học viện Thanh Nhạc Art Beginning – Nơi âm nhạc bắt đầu từ trái tim. Đào tạo thanh nhạc bài bản, chuyên nghiệp cho mọi lứa tuổi.

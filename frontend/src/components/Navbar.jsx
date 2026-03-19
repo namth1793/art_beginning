@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import logo from '../assets/logo.png'
 
 const links = [
@@ -22,10 +22,10 @@ export default function Navbar() {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-charcoal/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'}`}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="group">
-          <img src={logo} alt="Art Beginning" className="h-12 w-auto object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" />
+          <img src={logo} alt="Art Beginning" className="h-20 w-auto object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" />
         </a>
 
         {/* Desktop nav */}
