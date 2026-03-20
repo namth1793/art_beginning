@@ -1,4 +1,5 @@
 import { CheckCircle } from 'lucide-react'
+import aboutImg from '../assets/about.jpg'
 
 const values = [
   'Phương pháp giảng dạy cá nhân hóa theo từng học viên',
@@ -15,7 +16,7 @@ export default function About() {
         {/* Image side */}
         <div className="relative fade-in">
           <img
-            src="https://images.unsplash.com/photo-1585974738771-84483dd9f89f?w=700&auto=format&fit=crop&q=80"
+            src={aboutImg}
             alt="About Art Beginning"
             className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
           />

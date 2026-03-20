@@ -1,4 +1,10 @@
 import { Quote } from 'lucide-react'
+import gv1 from '../assets/giao_vien/z7635884412239_95a95dd5a729b6602c0a38c687c46c75.jpg'
+import gv2 from '../assets/giao_vien/z7635884465172_e077ccd6943aae9e5926fe87b6b6bbb8.jpg'
+import gv3 from '../assets/giao_vien/z7635884488834_7a58c12aabfeea9cc6c63541f8862356.jpg'
+import gv4 from '../assets/giao_vien/z7635884506084_e7e2a1cf764fb0595a16192631fb251d.jpg'
+import gv5 from '../assets/giao_vien/z7635884507862_884726debad2013b00fa907ebd52e51b.jpg'
+import gv6 from '../assets/giao_vien/z7635884537257_79498746618c0568c5c41a7fb1a43ba9.jpg'
 
 export default function Testimonial() {
   return (
@@ -24,7 +30,7 @@ export default function Testimonial() {
             </p>
             <div className="flex items-center gap-4">
               <img
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&auto=format&fit=crop&q=80"
+                src={gv1}
                 alt="Founder"
                 className="w-14 h-14 rounded-full object-cover border-2 border-gold"
               />
@@ -39,19 +45,19 @@ export default function Testimonial() {
           <div className="grid grid-cols-2 gap-4 fade-in" style={{ transitionDelay: '0.2s' }}>
             <div className="col-span-2">
               <img
-                src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=700&auto=format&fit=crop&q=80"
-                alt="Teaching moment"
+                src={gv2}
+                alt="Giảng viên"
                 className="w-full h-64 object-cover rounded-2xl shadow-lg"
               />
             </div>
             <img
-              src="https://images.unsplash.com/photo-1460881680858-30d872d5b530?w=400&auto=format&fit=crop&q=80"
-              alt="Student practice"
+              src={gv3}
+              alt="Giảng viên"
               className="h-44 w-full object-cover rounded-xl shadow-md"
             />
             <img
-              src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=400&auto=format&fit=crop&q=80"
-              alt="Music class"
+              src={gv4}
+              alt="Giảng viên"
               className="h-44 w-full object-cover rounded-xl shadow-md"
             />
           </div>
