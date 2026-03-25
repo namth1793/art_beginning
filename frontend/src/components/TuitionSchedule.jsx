@@ -59,19 +59,6 @@ const schedule1v1 = [
   '19:30 – 20:15',
 ]
 
-const subjects = [
-  { name: 'Thanh nhạc', icon: '🎤' },
-  { name: 'Piano', icon: '🎹' },
-  { name: 'Organ', icon: '🎹' },
-  { name: 'Guitar', icon: '🎸' },
-  { name: 'Đàn tranh', icon: '🪕' },
-  { name: 'Đàn bầu', icon: '🎵' },
-  { name: 'Sáo', icon: '🎶' },
-  { name: 'Nhị', icon: '🎻' },
-  { name: 'Múa biểu diễn', icon: '💃' },
-  { name: 'Nhảy hiện đại', icon: '🕺' },
-]
-
 // ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 
 export default function TuitionSchedule() {
@@ -192,26 +179,6 @@ export default function TuitionSchedule() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* ── SUBJECTS ── */}
-        <div className="mt-16 fade-in" style={{ transitionDelay: '0.3s' }}>
-          <div className="text-center mb-10">
-            <p className="section-subtitle">Chương trình</p>
-            <h2 className="section-title">Môn học</h2>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-            {subjects.map((s, i) => (
-              <div
-                key={i}
-                className="flex flex-col items-center gap-2 bg-cream border border-gray-200 rounded-xl px-4 py-5 hover:border-gold hover:shadow-sm transition-all duration-200 cursor-default"
-              >
-                <span className="text-2xl">{s.icon}</span>
-                <span className="text-sm font-medium text-charcoal text-center leading-tight">{s.name}</span>
-              </div>
-            ))}
           </div>
         </div>
 
