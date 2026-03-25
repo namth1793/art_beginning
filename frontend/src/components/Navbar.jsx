@@ -6,7 +6,6 @@ const links = [
   { label: 'Trang chủ', href: '#hero' },
   { label: 'Giới thiệu', href: '#about' },
   { label: 'Khóa học', href: '#courses' },
-  { label: 'Sự kiện', href: '#events' },
   { label: 'Bảng giá', href: '#tuition' },
   { label: 'Liên hệ', href: '#contact' },
 ]

@@ -29,9 +29,7 @@ export default function Footer() {
             {[
               ['Trang chủ', '#hero'],
               ['Giới thiệu', '#about'],
-              ['Khóa học', '#courses'],
               ['Thành quả học viên', '#achievements'],
-              ['Sự kiện', '#events'],
               ['Bảng giá', '#tuition'],
               ['Đăng ký học thử', '#register'],
             ].map(([label, href]) => (

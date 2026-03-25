@@ -1,13 +1,10 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import StudentAchievements from './components/StudentAchievements'
-import Events from './components/Events'
 import Testimonial from './components/Testimonial'
 import Statistics from './components/Statistics'
 import About from './components/About'
-import Courses from './components/Courses'
 import TuitionSchedule from './components/TuitionSchedule'
-import Gallery from './components/Gallery'
 import RegistrationForm from './components/RegistrationForm'
 import Footer from './components/Footer'
 import { useEffect } from 'react'
@@ -27,13 +24,10 @@ export default function App() {
       <Navbar />
       <Hero />
       <StudentAchievements />
-      <Events />
       <Testimonial />
       <Statistics />
       <About />
-      <Courses />
       <TuitionSchedule />
-      <Gallery />
       <RegistrationForm />
       <Footer />
     </div>
