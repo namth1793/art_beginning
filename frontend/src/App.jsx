@@ -6,6 +6,7 @@ import Testimonial from './components/Testimonial'
 import Statistics from './components/Statistics'
 import About from './components/About'
 import Courses from './components/Courses'
+import TuitionSchedule from './components/TuitionSchedule'
 import Gallery from './components/Gallery'
 import RegistrationForm from './components/RegistrationForm'
 import Footer from './components/Footer'
@@ -31,6 +32,7 @@ export default function App() {
       <Statistics />
       <About />
       <Courses />
+      <TuitionSchedule />
       <Gallery />
       <RegistrationForm />
       <Footer />

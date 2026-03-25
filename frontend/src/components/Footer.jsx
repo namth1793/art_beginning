@@ -32,6 +32,7 @@ export default function Footer() {
               ['Khóa học', '#courses'],
               ['Thành quả học viên', '#achievements'],
               ['Sự kiện', '#events'],
+              ['Bảng giá', '#tuition'],
               ['Đăng ký học thử', '#register'],
             ].map(([label, href]) => (
               <li key={href}>
@@ -47,15 +48,15 @@ export default function Footer() {
           <ul className="space-y-4">
             <li className="flex items-start gap-3 text-white/60 text-sm">
               <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
-              <span>123 Đường Âm Nhạc, Quận Hải Châu, Đà Nẵng</span>
+              <span>Nhà số một ngách 19 ngõ 137, phường Việt Hưng, thành phố Hà Nội</span>
             </li>
             <li className="flex items-center gap-3 text-white/60 text-sm">
               <Phone className="w-4 h-4 text-gold flex-shrink-0" />
-              <a href="tel:+84901234567" className="hover:text-gold transition-colors">0901 234 567</a>
+              <a href="tel:+840382881172" className="hover:text-gold transition-colors">0382 881 172</a>
             </li>
             <li className="flex items-center gap-3 text-white/60 text-sm">
               <Mail className="w-4 h-4 text-gold flex-shrink-0" />
-              <a href="mailto:info@artbeginning.vn" className="hover:text-gold transition-colors">info@artbeginning.vn</a>
+              <a href="mailto:artbeginning2026@gmail.com" className="hover:text-gold transition-colors">artbeginning2026@gmail.com</a>
             </li>
           </ul>
 
