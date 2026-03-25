@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 
 // Auto-import toàn bộ ảnh trong folder
 const imageModules = import.meta.glob('../assets/thu_vien_anh/*.jpg', { eager: true })
@@ -17,7 +16,7 @@ export default function StudentAchievements() {
         <div className="text-center mb-16 fade-in">
           <p className="section-subtitle">Học viên của chúng tôi</p>
           <h2 className="section-title">Thành quả học viên</h2>
-          <p className="text-gray-600 max-w-xl mx-auto mt-4">
+          <p className="text-gray-500 max-w-xl mx-auto mt-4 text-sm leading-relaxed">
             Mỗi khoảnh khắc là một cột mốc trên hành trình âm nhạc của học viên.
           </p>
         </div>
@@ -33,10 +32,10 @@ export default function StudentAchievements() {
             >
               <img
                 src={src}
-                alt={`Thành quả học viên ${i + 1}`}
+                alt={`Thành quả học viên Art Beginning số ${i + 1}`}
                 className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-colors duration-300" />
             </div>
           ))}
         </div>
@@ -45,43 +44,46 @@ export default function StudentAchievements() {
       {/* Lightbox */}
       {lightbox !== null && (
         <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/92 flex items-center justify-center p-4"
           onClick={() => setLightbox(null)}
         >
-          {/* Close */}
+          {/* Close — text button */}
           <button
-            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-xl font-light transition-colors"
             onClick={() => setLightbox(null)}
+            aria-label="Đóng"
           >
-            <X className="w-5 h-5" />
+            ✕
           </button>
 
-          {/* Prev */}
+          {/* Prev — unicode arrow */}
           <button
-            className="absolute left-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            className="absolute left-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-2xl transition-colors"
             onClick={e => { e.stopPropagation(); prev() }}
+            aria-label="Ảnh trước"
           >
-            <ChevronLeft className="w-6 h-6" />
+            ‹
           </button>
 
           {/* Image */}
           <img
             src={images[lightbox]}
-            alt={`Ảnh ${lightbox + 1}`}
+            alt={`Thành quả học viên ${lightbox + 1}`}
             className="max-h-[85vh] max-w-full rounded-xl shadow-2xl object-contain"
             onClick={e => e.stopPropagation()}
           />
 
-          {/* Next */}
+          {/* Next — unicode arrow */}
           <button
-            className="absolute right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            className="absolute right-4 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-2xl transition-colors"
             onClick={e => { e.stopPropagation(); next() }}
+            aria-label="Ảnh tiếp theo"
           >
-            <ChevronRight className="w-6 h-6" />
+            ›
           </button>
 
           {/* Counter */}
-          <p className="absolute bottom-5 text-white/50 text-sm tabular-nums">
+          <p className="absolute bottom-5 text-white/40 text-sm tabular-nums tracking-widest">
             {lightbox + 1} / {images.length}
           </p>
         </div>

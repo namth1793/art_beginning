@@ -1,5 +1,3 @@
-import { Quote } from 'lucide-react'
-
 // Auto-import toàn bộ ảnh trong folder — thêm file mới tự động hiển thị
 const teacherModules = import.meta.glob('../assets/giao_vien/*.jpg', { eager: true })
 const teacherImages = Object.values(teacherModules).map(m => m.default)
@@ -17,28 +15,29 @@ export default function Testimonial() {
           <h2 className="section-title">Thư ngỏ</h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-16 items-start">
           {/* Text */}
           <div className="fade-in">
-            <Quote className="w-10 h-10 text-gold mb-6 opacity-60" />
+            {/* CSS big quote — no icon */}
+            <div className="big-quote" aria-hidden="true" />
             <p className="text-gray-700 text-lg leading-relaxed mb-6 font-light italic">
               "Âm nhạc không chỉ là kỹ năng – đó là ngôn ngữ của tâm hồn. Khi một học viên lần đầu tiên cất lên giọng hát và nghe thấy chính mình trong giai điệu, tôi biết rằng hành trình của họ đã thực sự bắt đầu."
             </p>
-            <p className="text-gray-600 leading-relaxed mb-6">
+            <p className="text-gray-500 leading-relaxed mb-6 text-sm">
               Tại Art Beginning, chúng tôi tin rằng mọi giọng hát đều có giá trị riêng. Sứ mệnh của chúng tôi là giúp bạn tìm thấy và nuôi dưỡng giọng hát đó – không phân biệt độ tuổi, kinh nghiệm hay xuất phát điểm.
             </p>
-            <p className="text-gray-600 leading-relaxed mb-8">
+            <p className="text-gray-500 leading-relaxed mb-10 text-sm">
               Với hơn 10 năm kinh nghiệm đào tạo thanh nhạc và hơn 500 học viên đã tốt nghiệp, chúng tôi tự hào là địa chỉ tin cậy cho những ai muốn bước vào thế giới âm nhạc một cách bài bản và đam mê.
             </p>
             <div className="flex items-center gap-4">
               <img
                 src={founderAvatar}
-                alt="Founder"
+                alt="Nguyễn Phương Linh — Giám đốc Art Beginning"
                 className="w-14 h-14 rounded-full object-cover border-2 border-gold"
               />
               <div>
                 <p className="font-semibold text-charcoal">Nguyễn Phương Linh</p>
-                <p className="text-gold text-sm">Giám đốc & Giảng viên trưởng</p>
+                <p className="text-gold text-sm">Giám đốc &amp; Giảng viên trưởng</p>
               </div>
             </div>
           </div>
@@ -51,17 +50,16 @@ export default function Testimonial() {
                 <div className="col-span-2">
                   <img
                     src={gridImages[0]}
-                    alt="Giảng viên Art Beginning"
+                    alt="Giảng viên Art Beginning Vocal Academy"
                     className="w-full h-64 object-cover rounded-2xl shadow-lg"
                   />
                 </div>
-
                 {/* Các ảnh còn lại xếp 2 cột */}
                 {gridImages.slice(1).map((src, i) => (
                   <img
                     key={i}
                     src={src}
-                    alt={`Giảng viên ${i + 2}`}
+                    alt={`Giảng viên Art Beginning ${i + 2}`}
                     className="w-full h-40 object-cover rounded-xl shadow-md hover:scale-[1.02] transition-transform duration-300"
                   />
                 ))}

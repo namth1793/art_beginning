@@ -1,5 +1,3 @@
-import { Clock, Users } from 'lucide-react'
-
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const pricingData = [
@@ -68,7 +66,7 @@ export default function TuitionSchedule() {
 
         {/* Header */}
         <div className="text-center mb-14 fade-in">
-          <p className="section-subtitle">Học phí & Lịch học</p>
+          <p className="section-subtitle">Học phí &amp; Lịch học</p>
           <h2 className="section-title">Bảng giá</h2>
         </div>
 
@@ -85,8 +83,8 @@ export default function TuitionSchedule() {
           {pricingData.map((block, bi) => (
             <div key={bi}>
               {/* Block header */}
-              <div className="grid grid-cols-3 bg-cream border-t border-gray-200">
-                <div className="px-6 py-3 col-span-3 flex flex-wrap items-center gap-3">
+              <div className="bg-cream border-t border-gray-200">
+                <div className="px-6 py-3 flex flex-wrap items-center gap-3">
                   <span className="font-semibold text-charcoal text-sm">{block.category}</span>
                   <span className="text-xs text-gray-400 bg-white border border-gray-200 px-2.5 py-0.5 rounded-full">
                     {block.duration}
@@ -104,7 +102,7 @@ export default function TuitionSchedule() {
                   key={ri}
                   className="grid grid-cols-3 border-t border-gray-100 hover:bg-gray-50 transition-colors duration-150"
                 >
-                  <div className="px-6 py-4 text-sm text-gray-700">{row.label}</div>
+                  <div className="px-6 py-4 text-sm text-gray-600">{row.label}</div>
                   <div className="px-6 py-4 text-center border-l border-gray-100">
                     <span className="font-semibold text-charcoal text-sm">{row.session}</span>
                   </div>
@@ -121,10 +119,7 @@ export default function TuitionSchedule() {
             <p className="text-xs text-gray-400">
               * Học phí có thể thay đổi. Liên hệ để nhận tư vấn và ưu đãi mới nhất.
             </p>
-            <a
-              href="#register"
-              className="btn-gold text-xs py-2 px-5"
-            >
+            <a href="#register" className="btn-gold text-xs py-2 px-5">
               Đăng ký học thử miễn phí
             </a>
           </div>
@@ -140,20 +135,15 @@ export default function TuitionSchedule() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* Group */}
             <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-              <div className="flex items-center gap-3 px-6 py-4 bg-cream border-b border-gray-200">
-                <div className="w-8 h-8 rounded-full bg-charcoal flex items-center justify-center flex-shrink-0">
-                  <Users className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-charcoal text-sm">Lớp nhóm</p>
-                  <p className="text-xs text-gray-400">2 – 5 học viên · 90 phút</p>
-                </div>
+              <div className="px-6 py-4 bg-cream border-b border-gray-200">
+                <p className="font-semibold text-charcoal text-sm">Lớp nhóm</p>
+                <p className="text-xs text-gray-400 mt-0.5">2 – 5 học viên · 90 phút / buổi</p>
               </div>
               <div className="divide-y divide-gray-100">
                 {scheduleGroup.map((slot, i) => (
-                  <div key={i} className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50 transition-colors">
-                    <Clock className="w-3.5 h-3.5 text-gold flex-shrink-0" />
+                  <div key={i} className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors">
                     <span className="text-sm font-medium text-gray-700 tabular-nums">{slot}</span>
+                    <span className="text-xs text-gray-400">90 phút</span>
                   </div>
                 ))}
               </div>
@@ -161,20 +151,15 @@ export default function TuitionSchedule() {
 
             {/* 1:1 */}
             <div className="rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
-              <div className="flex items-center gap-3 px-6 py-4 bg-cream border-b border-gray-200">
-                <div className="w-8 h-8 rounded-full bg-charcoal flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-4 h-4 text-white" />
-                </div>
-                <div>
-                  <p className="font-semibold text-charcoal text-sm">Lớp 1:1</p>
-                  <p className="text-xs text-gray-400">Cá nhân · 45 phút</p>
-                </div>
+              <div className="px-6 py-4 bg-cream border-b border-gray-200">
+                <p className="font-semibold text-charcoal text-sm">Lớp 1:1</p>
+                <p className="text-xs text-gray-400 mt-0.5">Cá nhân · 45 phút / buổi</p>
               </div>
               <div className="divide-y divide-gray-100">
                 {schedule1v1.map((slot, i) => (
-                  <div key={i} className="flex items-center gap-3 px-6 py-3 hover:bg-gray-50 transition-colors">
-                    <Clock className="w-3.5 h-3.5 text-gold flex-shrink-0" />
+                  <div key={i} className="flex items-center justify-between px-6 py-3 hover:bg-gray-50 transition-colors">
                     <span className="text-sm font-medium text-gray-700 tabular-nums">{slot}</span>
+                    <span className="text-xs text-gray-400">45 phút</span>
                   </div>
                 ))}
               </div>

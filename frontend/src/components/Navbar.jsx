@@ -1,4 +1,3 @@
-import { Menu, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import logo from '../assets/logo.png'
 
@@ -25,11 +24,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
         {/* Logo */}
         <a href="#hero" className="group">
-          <img src={logo} alt="Art Beginning" className="h-20 w-auto object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" />
+          <img src={logo} alt="Art Beginning Vocal Academy" className="h-20 w-auto object-contain brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300" />
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav aria-label="Điều hướng chính" className="hidden md:flex items-center gap-8">
           {links.map(l => (
             <a key={l.href} href={l.href}
               className="text-white/80 hover:text-gold text-sm font-medium tracking-wide transition-colors duration-200">
@@ -39,9 +38,15 @@ export default function Navbar() {
           <a href="#register" className="btn-gold text-sm py-2.5">Đăng ký học thử</a>
         </nav>
 
-        {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-white">
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+        {/* Mobile hamburger — CSS bars, no icon library */}
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label={open ? 'Đóng menu' : 'Mở menu'}
+          className="md:hidden flex flex-col justify-center gap-[5px] w-8 h-8 p-1"
+        >
+          <span className={`block h-px bg-white transition-all duration-300 origin-center ${open ? 'rotate-45 translate-y-[6px] w-6' : 'w-6'}`} />
+          <span className={`block h-px bg-white transition-all duration-200 ${open ? 'opacity-0 w-0' : 'w-5'}`} />
+          <span className={`block h-px bg-white transition-all duration-300 origin-center ${open ? '-rotate-45 -translate-y-[6px] w-6' : 'w-4'}`} />
         </button>
       </div>
 
@@ -50,7 +55,7 @@ export default function Navbar() {
         <div className="md:hidden bg-charcoal/98 backdrop-blur-sm px-6 pb-6 flex flex-col gap-4">
           {links.map(l => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-              className="text-white/80 hover:text-gold py-2 border-b border-white/10 transition-colors">
+              className="text-white/80 hover:text-gold py-2.5 border-b border-white/10 text-sm tracking-wide transition-colors">
               {l.label}
             </a>
           ))}

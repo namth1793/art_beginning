@@ -1,4 +1,3 @@
-import { CheckCircle } from 'lucide-react'
 import aboutImg from '../assets/about.jpg'
 
 const values = [
@@ -17,7 +16,7 @@ export default function About() {
         <div className="relative fade-in">
           <img
             src={aboutImg}
-            alt="About Art Beginning"
+            alt="Không gian học tập tại Art Beginning Vocal Academy"
             className="rounded-2xl shadow-2xl w-full h-[500px] object-cover"
           />
           <div className="absolute -bottom-6 -right-6 bg-gold rounded-2xl p-6 shadow-xl hidden md:block">
@@ -29,18 +28,19 @@ export default function About() {
         {/* Text side */}
         <div className="fade-in" style={{ transitionDelay: '0.2s' }}>
           <p className="section-subtitle">Câu chuyện của chúng tôi</p>
-          <h2 className="section-title mb-4">Về Voice Academy</h2>
-          <p className="text-gray-600 leading-relaxed mb-8">
+          <h2 className="section-title mb-4">Về Art Beginning</h2>
+          <p className="text-gray-500 leading-relaxed mb-8 text-sm">
             Art Beginning được thành lập năm 2015 với niềm tin rằng âm nhạc là quyền của mọi người.
             Chúng tôi đã đồng hành cùng hàng trăm học viên từ những bước đầu chập chững đến sân khấu chuyên nghiệp.
           </p>
 
           <div className="bg-cream rounded-2xl p-6 mb-8">
-            <p className="font-serif text-lg font-semibold text-charcoal mb-4">Giá trị cốt lõi</p>
+            <p className="font-serif text-base font-semibold text-charcoal mb-5">Giá trị cốt lõi</p>
             <ul className="space-y-3">
               {values.map((v, i) => (
-                <li key={i} className="flex items-start gap-3 text-gray-600 text-sm">
-                  <CheckCircle className="w-5 h-5 text-gold flex-shrink-0 mt-0.5" />
+                <li key={i} className="flex items-start gap-3 text-gray-500 text-sm">
+                  {/* Dash bullet — no icon */}
+                  <span className="text-gold font-semibold mt-0.5 flex-shrink-0 select-none">—</span>
                   <span>{v}</span>
                 </li>
               ))}
