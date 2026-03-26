@@ -1,3 +1,6 @@
+import imgTanNhan from '../assets/giao_vien/tan_nhan.jpg'
+import imgThuHa from '../assets/giao_vien/thu_ha.jpg'
+
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const pricingData = [
@@ -28,8 +31,8 @@ const pricingData = [
     duration: '45 phút / buổi',
     note: null,
     rows: [
-      { label: 'Nguyễn Thị Tân Nhàn', session: '3.000.000đ', course: '18.000.000đ' },
-      { label: 'Trần Thị Thu Hà', session: '2.000.000đ', course: '12.000.000đ' },
+      { label: 'PGS, TS, NSUT Nguyễn Thị Tân Nhàn', session: '3.000.000đ', course: '18.000.000đ', img: imgTanNhan },
+      { label: 'TS. Trần Thị Thu Hà', session: '2.000.000đ', course: '12.000.000đ', img: imgThuHa },
     ],
     courseNote: 'Khóa 6 buổi',
   },
@@ -102,7 +105,16 @@ export default function TuitionSchedule() {
                   key={ri}
                   className="grid grid-cols-3 border-t border-gray-100 hover:bg-gray-50 transition-colors duration-150"
                 >
-                  <div className="px-6 py-4 text-sm text-gray-600">{row.label}</div>
+                  <div className="px-6 py-4 text-sm text-gray-600 flex items-center gap-3">
+                    {row.img && (
+                      <img
+                        src={row.img}
+                        alt={row.label}
+                        className="w-9 h-9 rounded-full object-cover flex-shrink-0 border border-gray-200"
+                      />
+                    )}
+                    <span>{row.label}</span>
+                  </div>
                   <div className="px-6 py-4 text-center border-l border-gray-100">
                     <span className="font-semibold text-charcoal text-sm">{row.session}</span>
                   </div>

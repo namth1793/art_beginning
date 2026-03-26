@@ -1,5 +1,6 @@
 // Auto-import toàn bộ ảnh trong folder — thêm file mới tự động hiển thị
-const teacherModules = import.meta.glob('../assets/giao_vien/*.jpg', { eager: true })
+// Chỉ lấy ảnh z-prefix (ảnh gallery chung), không lấy ảnh portrait cá nhân
+const teacherModules = import.meta.glob('../assets/giao_vien/z*.jpg', { eager: true })
 const teacherImages = Object.values(teacherModules).map(m => m.default)
 
 // Ảnh đầu tiên làm avatar người sáng lập, phần còn lại vào grid
