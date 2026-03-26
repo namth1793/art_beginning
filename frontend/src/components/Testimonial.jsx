@@ -16,9 +16,9 @@ export default function Testimonial() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Text */}
+
+          {/* ── Text side ── */}
           <div className="fade-in">
-            {/* CSS big quote — no icon */}
             <div className="big-quote" aria-hidden="true" />
             <p className="text-gray-700 text-lg leading-relaxed mb-6 font-light italic">
               "Âm nhạc không chỉ là kỹ năng – đó là ngôn ngữ của tâm hồn. Khi một học viên lần đầu tiên cất lên giọng hát và nghe thấy chính mình trong giai điệu, tôi biết rằng hành trình của họ đã thực sự bắt đầu."
@@ -42,30 +42,36 @@ export default function Testimonial() {
             </div>
           </div>
 
-          {/* Teacher image grid — tự động hiển thị tất cả ảnh trong folder */}
-          <div className="fade-in" style={{ transitionDelay: '0.2s' }}>
-            {gridImages.length > 0 && (
-              <div className="grid grid-cols-2 gap-3">
-                {/* Ảnh đầu tiên chiếm full width */}
-                <div className="col-span-2">
-                  <img
-                    src={gridImages[0]}
-                    alt="Giảng viên Art Beginning Vocal Academy"
-                    className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                  />
-                </div>
-                {/* Các ảnh còn lại xếp 2 cột */}
-                {gridImages.slice(1).map((src, i) => (
-                  <img
+          {/* ── Teacher image grid ── */}
+          {gridImages.length > 0 && (
+            <div className="fade-in grid grid-cols-2 gap-2.5" style={{ transitionDelay: '0.2s' }}>
+
+              {gridImages.map((src, i) => {
+                // Ảnh đầu và áp chót (nếu số chẵn) chiếm full width
+                const isFullWidth =
+                  i === 0 ||
+                  (gridImages.length % 2 === 0 && i === gridImages.length - 2) ||
+                  (gridImages.length % 2 !== 0 && i === gridImages.length - 1)
+
+                return (
+                  <div
                     key={i}
-                    src={src}
-                    alt={`Giảng viên Art Beginning ${i + 2}`}
-                    className="w-full h-40 object-cover rounded-xl shadow-md hover:scale-[1.02] transition-transform duration-300"
-                  />
-                ))}
-              </div>
-            )}
-          </div>
+                    className={isFullWidth ? 'col-span-2' : 'col-span-1'}
+                  >
+                    <img
+                      src={src}
+                      alt={`Giảng viên Art Beginning ${i + 2}`}
+                      className={`w-full object-cover rounded-xl shadow-sm hover:scale-[1.02] transition-transform duration-300 ${
+                        isFullWidth ? 'h-52' : 'h-40'
+                      }`}
+                    />
+                  </div>
+                )
+              })}
+
+            </div>
+          )}
+
         </div>
       </div>
     </section>

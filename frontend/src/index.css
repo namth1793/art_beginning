@@ -109,3 +109,18 @@
   0%, 100% { opacity: 0.3; }
   50% { opacity: 0.9; }
 }
+
+/* ── Carousel auto-scroll ── */
+@keyframes carouselScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.carousel-track {
+  display: flex;
+  width: max-content;
+  animation: carouselScroll 70s linear infinite;
+  will-change: transform;
+}
+.carousel-wrapper:hover .carousel-track {
+  animation-play-state: paused;
+}
