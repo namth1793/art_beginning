@@ -93,7 +93,7 @@ export default function Testimonial() {
             <div className="grid grid-cols-3 gap-3">
               {/* 6 ảnh đầu: 2 hàng × 3 cột */}
               {otherImages.slice(0, 6).map((src, i) => (
-                <div key={i} className={`overflow-hidden rounded-2xl shadow-sm group cursor-pointer${i === 0 ? ' -mt-5' : ''}`}>
+                <div key={i} className="overflow-hidden rounded-2xl shadow-sm group cursor-pointer">
                   <img
                     src={src}
                     alt={`Hoạt động giảng dạy ${i + 1}`}
