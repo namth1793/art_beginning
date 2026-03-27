@@ -97,7 +97,7 @@ export default function Testimonial() {
                   <img
                     src={src}
                     alt={`Hoạt động giảng dạy ${i + 1}`}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-48 object-cover object-top group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
               ))}
@@ -107,7 +107,7 @@ export default function Testimonial() {
                   <img
                     src={otherImages[6]}
                     alt="Hoạt động giảng dạy 7"
-                    className="w-full h-56 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-56 object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               )}
