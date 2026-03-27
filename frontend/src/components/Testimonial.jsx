@@ -1,79 +1,117 @@
-// Auto-import toàn bộ ảnh trong folder — thêm file mới tự động hiển thị
-// Chỉ lấy ảnh z-prefix (ảnh gallery chung), không lấy ảnh portrait cá nhân
-const teacherModules = import.meta.glob('../assets/giao_vien/z*.jpg', { eager: true })
-const teacherImages = Object.values(teacherModules).map(m => m.default)
+import thuHaImg from '../assets/giao_vien/thu_ha.jpg'
+import tanNhanImg from '../assets/giao_vien/tan_nhan.jpg'
 
-// Ảnh đầu tiên làm avatar người sáng lập, phần còn lại vào grid
-const founderAvatar = teacherImages[0]
-const gridImages = teacherImages.slice(1)
+const otherModules = import.meta.glob('../assets/giao_vien/z*.jpg', { eager: true })
+const otherImages = Object.values(otherModules).map(m => m.default)
+
+const teachers = [
+  {
+    img: thuHaImg,
+    name: 'TS. Trần Thị Thu Hà',
+    title: 'Tiến sĩ Thanh nhạc',
+    desc: 'Giảng viên thanh nhạc với hơn 15 năm kinh nghiệm đào tạo và biểu diễn chuyên nghiệp.',
+  },
+  {
+    img: tanNhanImg,
+    name: 'PGS.TS. NSUT Nguyễn Thị Tân Nhàn',
+    title: 'Phó Giáo sư · Tiến sĩ · Nghệ sĩ Ưu tú',
+    desc: 'Phó Giáo sư hàng đầu trong lĩnh vực thanh nhạc Việt Nam, nguyên giảng viên Học viện Âm nhạc Quốc gia.',
+  },
+]
 
 export default function Testimonial() {
   return (
-    <section className="py-24 bg-cream">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16 fade-in">
-          <p className="section-subtitle">Từ người sáng lập</p>
-          <h2 className="section-title">Thư ngỏ</h2>
+    <section className="py-28 bg-cream relative overflow-hidden">
+
+      {/* Nền trang trí */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-gold/5 rounded-full -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/5 rounded-full translate-x-1/3 translate-y-1/3" />
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative">
+
+        {/* ── Tiêu đề ── */}
+        <div className="text-center mb-20 fade-in">
+          <p className="section-subtitle">Đội ngũ chuyên môn</p>
+          <h2 className="section-title">Giảng Viên</h2>
+          <p className="text-gray-500 max-w-xl mx-auto mt-4 text-sm leading-relaxed">
+            Art Beginning tự hào được đồng hành cùng các giảng viên hàng đầu trong lĩnh vực thanh nhạc Việt Nam.
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        {/* ── 2 giáo viên chính ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-20">
+          {teachers.map((t, i) => (
+            <div
+              key={i}
+              className="fade-in group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-500"
+              style={{ transitionDelay: `${i * 0.15}s` }}
+            >
+              {/* Ảnh */}
+              <div className="relative overflow-hidden h-[420px]">
+                <img
+                  src={t.img}
+                  alt={t.name}
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                {/* Tên nổi trên ảnh (desktop) */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 hidden md:block">
+                  <h3 className="text-white text-xl font-serif font-semibold leading-snug drop-shadow">
+                    {t.name}
+                  </h3>
+                  <p className="text-gold-light text-xs mt-1 font-medium tracking-wide drop-shadow" style={{ color: '#e8c97e' }}>
+                    {t.title}
+                  </p>
+                </div>
+              </div>
 
-          {/* ── Text side ── */}
-          <div className="fade-in">
-            <div className="big-quote" aria-hidden="true" />
-            <p className="text-gray-700 text-lg leading-relaxed mb-6 font-light italic">
-              "Âm nhạc không chỉ là kỹ năng – đó là ngôn ngữ của tâm hồn. Khi một học viên lần đầu tiên cất lên giọng hát và nghe thấy chính mình trong giai điệu, tôi biết rằng hành trình của họ đã thực sự bắt đầu."
-            </p>
-            <p className="text-gray-500 leading-relaxed mb-6 text-sm">
-              Tại Art Beginning, chúng tôi tin rằng mọi giọng hát đều có giá trị riêng. Sứ mệnh của chúng tôi là giúp bạn tìm thấy và nuôi dưỡng giọng hát đó – không phân biệt độ tuổi, kinh nghiệm hay xuất phát điểm.
-            </p>
-            <p className="text-gray-500 leading-relaxed mb-10 text-sm">
-              Với hơn 10 năm kinh nghiệm đào tạo thanh nhạc và hơn 500 học viên đã tốt nghiệp, chúng tôi tự hào là địa chỉ tin cậy cho những ai muốn bước vào thế giới âm nhạc một cách bài bản và đam mê.
-            </p>
-            <div className="flex items-center gap-4">
-              <img
-                src={founderAvatar}
-                alt="Nguyễn Phương Linh — Giám đốc Art Beginning"
-                className="w-14 h-14 rounded-full object-cover border-2 border-gold"
-              />
-              <div>
-                <p className="font-semibold text-charcoal">Nguyễn Phương Linh</p>
-                <p className="text-gold text-sm">Giám đốc &amp; Giảng viên trưởng</p>
+              {/* Thông tin bên dưới ảnh (mobile + mô tả) */}
+              <div className="p-6">
+                {/* Tên (chỉ hiện trên mobile) */}
+                <div className="md:hidden mb-3">
+                  <h3 className="text-charcoal text-lg font-serif font-semibold">{t.name}</h3>
+                  <p className="text-gold text-xs mt-0.5 font-medium">{t.title}</p>
+                </div>
+                {/* Divider */}
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="h-px flex-1 bg-gold/30" />
+                  <span className="text-gold text-lg">♩</span>
+                  <span className="h-px flex-1 bg-gold/30" />
+                </div>
+                <p className="text-gray-500 text-sm leading-relaxed">{t.desc}</p>
               </div>
             </div>
-          </div>
-
-          {/* ── Teacher image grid ── */}
-          {gridImages.length > 0 && (
-            <div className="fade-in grid grid-cols-2 gap-2.5" style={{ transitionDelay: '0.2s' }}>
-
-              {gridImages.map((src, i) => {
-                // Ảnh đầu và áp chót (nếu số chẵn) chiếm full width
-                const isFullWidth =
-                  i === 0 ||
-                  (gridImages.length % 2 === 0 && i === gridImages.length - 2) ||
-                  (gridImages.length % 2 !== 0 && i === gridImages.length - 1)
-
-                return (
-                  <div
-                    key={i}
-                    className={isFullWidth ? 'col-span-2' : 'col-span-1'}
-                  >
-                    <img
-                      src={src}
-                      alt={`Giảng viên Art Beginning ${i + 2}`}
-                      className={`w-full object-cover rounded-xl shadow-sm hover:scale-[1.02] transition-transform duration-300 ${
-                        isFullWidth ? 'h-52' : 'h-40'
-                      }`}
-                    />
-                  </div>
-                )
-              })}
-
-            </div>
-          )}
-
+          ))}
         </div>
+
+        {/* ── Ảnh hoạt động ── */}
+        {otherImages.length > 0 && (
+          <div className="fade-in" style={{ transitionDelay: '0.3s' }}>
+            <div className="text-center mb-8">
+              <p className="text-gold text-sm font-medium tracking-widest uppercase">Hoạt động</p>
+              <h3 className="text-2xl font-serif font-semibold text-charcoal mt-1">Khoảnh Khắc Giảng Dạy</h3>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {otherImages.map((src, i) => (
+                <div
+                  key={i}
+                  className="overflow-hidden rounded-2xl shadow-sm group cursor-pointer"
+                >
+                  <img
+                    src={src}
+                    alt={`Hoạt động giảng dạy ${i + 1}`}
+                    className="w-full h-44 object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
       </div>
     </section>
   )

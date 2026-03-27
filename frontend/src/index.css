@@ -6,7 +6,7 @@
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #F7FAFB;
+    background-color: #F5F0E8;
     color: #1A1A1A;
   }
   h1, h2, h3 { font-family: 'Playfair Display', serif; }
@@ -14,23 +14,50 @@
 
 @layer components {
   .btn-gold {
-    @apply bg-gold text-white px-6 py-3 rounded-full font-medium hover:bg-gold-dark transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5;
+    @apply bg-gold text-white px-6 py-3 rounded-full font-medium
+           hover:bg-gold-dark transition-all duration-300
+           hover:shadow-[0_8px_24px_rgba(201,169,110,0.45)] hover:-translate-y-0.5;
   }
   .btn-outline {
-    @apply border-2 border-gold text-gold px-6 py-3 rounded-full font-medium hover:bg-gold hover:text-white transition-all duration-300;
+    @apply border-2 border-gold text-gold px-6 py-3 rounded-full font-medium
+           hover:bg-gold hover:text-white transition-all duration-300;
   }
   .section-title {
     @apply font-serif text-3xl md:text-4xl font-bold text-charcoal mb-2;
   }
   .section-subtitle {
-    @apply text-gold font-medium tracking-[0.25em] uppercase text-xs mb-4;
+    @apply text-gold font-medium tracking-[0.28em] uppercase text-xs mb-4;
   }
 }
 
-/* ── Musical section subtitle ornament ── */
+/* ── Musical ornament ── */
 .section-subtitle::before {
   content: '♩\00a0';
   opacity: 0.55;
+}
+
+/* ── Gold gradient text ── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A96E 0%, #e8c97e 50%, #C9A96E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Underline accent for section titles ── */
+.title-underline {
+  position: relative;
+  display: inline-block;
+}
+.title-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C9A96E, transparent);
 }
 
 /* ── Staff line divider ── */
@@ -45,35 +72,56 @@
   content: '';
   flex: 1;
   height: 1px;
-  background: #8AA5B1;
-  opacity: 0.25;
+  background: linear-gradient(90deg, transparent, #C9A96E44, transparent);
 }
 
 /* ── Fade-in animation ── */
 .fade-in {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
 }
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ── Large CSS quote mark (replaces Quote icon) ── */
+/* ── Slide-in from left ── */
+.slide-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.slide-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Slide-in from right ── */
+.slide-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.slide-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Large CSS quote mark ── */
 .big-quote::before {
   content: '\201C';
   display: block;
   font-family: 'Playfair Display', serif;
   font-size: 5rem;
   line-height: 0.8;
-  color: #8AA5B1;
-  opacity: 0.25;
+  color: #C9A96E;
+  opacity: 0.2;
   margin-bottom: -1rem;
   pointer-events: none;
 }
 
-/* ── CSS loading spinner (replaces Loader icon) ── */
+/* ── CSS loading spinner ── */
 .spinner {
   display: inline-block;
   width: 18px;
@@ -85,7 +133,7 @@
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* ── Scroll cue (replaces ChevronDown icon) ── */
+/* ── Scroll cue ── */
 .scroll-cue {
   display: flex;
   flex-direction: column;
@@ -94,20 +142,20 @@
 }
 .scroll-cue-line {
   width: 1px;
-  height: 32px;
-  background: rgba(255,255,255,0.4);
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5));
   animation: scrollPulse 2s ease-in-out infinite;
 }
 .scroll-cue-dot {
-  width: 4px;
-  height: 4px;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.6);
   animation: scrollPulse 2s ease-in-out infinite 0.3s;
 }
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 0.9; }
+  0%, 100% { opacity: 0.2; transform: translateY(-3px); }
+  50%       { opacity: 1;   transform: translateY(3px); }
 }
 
 /* ── Carousel auto-scroll ── */
@@ -123,4 +171,29 @@
 }
 .carousel-wrapper:hover .carousel-track {
   animation-play-state: paused;
+}
+
+/* ── Gold shimmer card hover ── */
+.card-hover {
+  transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(201,169,110,0.18);
+}
+
+/* ── Number counter glow ── */
+.stat-number {
+  text-shadow: 0 0 40px rgba(201,169,110,0.4);
+}
+
+/* ── Section wave divider ── */
+.wave-top {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: inherit;
+  clip-path: ellipse(55% 100% at 50% 0%);
 }

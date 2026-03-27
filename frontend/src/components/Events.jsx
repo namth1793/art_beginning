@@ -8,15 +8,15 @@ const events = [
     tag: 'Tin tức',
     source: 'kienthuc.net.vn',
     href: 'https://kienthuc.net.vn/tan-nhan-tu-hao-khi-hoc-tro-dat-giai-nhat-cuoc-thi-am-nhac-quoc-te-post1610433.html',
+    featured: true,
   },
   {
     id: 1,
     date: '15 Tháng 4, 2025',
     title: 'Mini Concert Mùa Xuân 2025',
-    desc: 'Đêm nhạc kết thúc khóa học kỳ 1/2025 với sự tham gia của hơn 30 học viên từ các lớp Cơ bản đến Nâng cao.',
+    desc: 'Đêm nhạc kết thúc khóa học kỳ 1/2025 với sự tham gia của hơn 30 học viên.',
     img: 'https://images.unsplash.com/photo-1501386761578-eaa54b4cd539?w=500&auto=format&fit=crop&q=80',
     tag: 'Biểu diễn',
-    source: null,
     href: '#register',
   },
   {
@@ -26,7 +26,6 @@ const events = [
     desc: 'Buổi workshop chuyên sâu về kỹ thuật kiểm soát hơi thở, phát âm chuẩn và xây dựng nội lực giọng hát.',
     img: 'https://images.unsplash.com/photo-1544531586-fde5298cdd40?w=500&auto=format&fit=crop&q=80',
     tag: 'Workshop',
-    source: null,
     href: '#register',
   },
   {
@@ -36,69 +35,101 @@ const events = [
     desc: 'Lễ kỷ niệm 5 năm thành lập Art Beginning với chương trình biểu diễn đặc biệt và trao giải học viên xuất sắc.',
     img: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=500&auto=format&fit=crop&q=80',
     tag: 'Sự kiện đặc biệt',
-    source: null,
     href: '#register',
   },
 ]
 
-const tagColors = {
-  'Tin tức':         'bg-gold/90 text-white',
-  'Biểu diễn':       'bg-charcoal/80 text-white',
-  'Workshop':        'bg-charcoal/80 text-white',
-  'Sự kiện đặc biệt': 'bg-charcoal/80 text-white',
+const tagStyle = {
+  'Tin tức':           'bg-gold text-white',
+  'Biểu diễn':        'bg-charcoal text-white',
+  'Workshop':         'bg-charcoal text-white',
+  'Sự kiện đặc biệt': 'bg-charcoal text-white',
 }
 
 export default function Events() {
+  const featured = events.find(e => e.featured)
+  const rest = events.filter(e => !e.featured)
+
   return (
-    <section id="events" className="py-24 bg-white">
+    <section id="events" className="py-28 bg-white">
       <div className="max-w-6xl mx-auto px-6">
+
         <div className="text-center mb-16 fade-in">
           <p className="section-subtitle">Hoạt động</p>
-          <h2 className="section-title">Tin tức &amp; Sự kiện</h2>
+          <h2 className="section-title title-underline">Tin tức &amp; Sự kiện</h2>
         </div>
 
-        <div className="flex flex-col gap-6">
-          {events.map((ev, i) => (
+        {/* Featured card */}
+        {featured && (
+          <a
+            href={featured.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block bg-cream rounded-3xl overflow-hidden shadow-md hover:shadow-2xl
+                       transition-all duration-500 mb-8 fade-in card-hover"
+          >
+            <div className="grid md:grid-cols-2">
+              {/* Image */}
+              <div className="relative overflow-hidden h-72 md:h-auto">
+                <img src={featured.img} alt={featured.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
+                <span className={`absolute top-4 left-4 text-xs font-semibold px-3 py-1.5 rounded-full ${tagStyle[featured.tag]}`}>
+                  {featured.tag}
+                </span>
+              </div>
+              {/* Content */}
+              <div className="flex flex-col justify-center p-10 md:p-12">
+                <p className="text-gold text-xs font-medium tracking-widest uppercase mb-3">
+                  {featured.date}
+                  {featured.source && <span className="ml-2 text-gray-400 normal-case tracking-normal">— {featured.source}</span>}
+                </p>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-charcoal mb-4 group-hover:text-gold transition-colors duration-200 leading-snug">
+                  {featured.title}
+                </h3>
+                <p className="text-gray-500 leading-relaxed text-sm mb-6">{featured.desc}</p>
+                <span className="inline-flex items-center gap-2 text-gold text-sm font-medium">
+                  Đọc bài báo
+                  <span className="group-hover:translate-x-2 transition-transform duration-300 inline-block">→</span>
+                </span>
+              </div>
+            </div>
+          </a>
+        )}
+
+        {/* 3-card grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {rest.map((ev, i) => (
             <a
               key={ev.id}
               href={ev.href}
-              target={ev.source ? '_blank' : '_self'}
-              rel={ev.source ? 'noopener noreferrer' : undefined}
-              className="flex flex-col md:flex-row gap-0 bg-cream rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group fade-in"
+              className="group flex flex-col bg-cream rounded-2xl overflow-hidden shadow-sm
+                         hover:shadow-xl transition-all duration-400 fade-in card-hover"
               style={{ transitionDelay: `${i * 0.1}s` }}
             >
-              {/* Image */}
-              <div className="md:w-64 h-52 md:h-auto relative flex-shrink-0 overflow-hidden">
-                <img
-                  src={ev.img}
-                  alt={ev.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <span className={`absolute top-3 left-3 text-xs font-semibold px-3 py-1 rounded-full ${tagColors[ev.tag] ?? 'bg-charcoal/80 text-white'}`}>
+              <div className="relative h-48 overflow-hidden">
+                <img src={ev.img} alt={ev.title}
+                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <span className={`absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full ${tagStyle[ev.tag] ?? 'bg-charcoal text-white'}`}>
                   {ev.tag}
                 </span>
               </div>
-
-              {/* Content */}
-              <div className="flex flex-col justify-center p-6 md:p-8 flex-1">
-                <p className="text-gold text-xs font-medium tracking-widest uppercase mb-3">
-                  {ev.date}
-                  {ev.source && (
-                    <span className="ml-3 text-gray-400 normal-case tracking-normal">— {ev.source}</span>
-                  )}
-                </p>
-                <h3 className="font-serif text-xl font-bold text-charcoal mb-3 group-hover:text-gold transition-colors duration-200 leading-snug">
+              <div className="flex flex-col flex-1 p-6">
+                <p className="text-gold text-xs font-medium tracking-widest uppercase mb-2">{ev.date}</p>
+                <h3 className="font-serif text-lg font-bold text-charcoal mb-2 group-hover:text-gold transition-colors duration-200 leading-snug flex-1">
                   {ev.title}
                 </h3>
-                <p className="text-gray-500 leading-relaxed text-sm mb-5">{ev.desc}</p>
-                <span className="inline-flex items-center gap-2 text-gold text-sm font-medium">
-                  {ev.source ? 'Đọc bài báo' : 'Xem thêm'}
+                <p className="text-gray-500 text-xs leading-relaxed mb-4 line-clamp-2">{ev.desc}</p>
+                <span className="inline-flex items-center gap-1.5 text-gold text-xs font-medium">
+                  Xem thêm
                   <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
                 </span>
               </div>
             </a>
           ))}
         </div>
+
       </div>
     </section>
   )

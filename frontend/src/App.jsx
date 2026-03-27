@@ -16,7 +16,7 @@ export default function App() {
       (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }),
       { threshold: 0.15 }
     )
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el))
+    document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => observer.observe(el))
     return () => observer.disconnect()
   }, [])
 
