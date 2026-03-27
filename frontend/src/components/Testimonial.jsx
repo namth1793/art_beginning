@@ -90,24 +90,27 @@ export default function Testimonial() {
         {/* ── Ảnh hoạt động ── */}
         {otherImages.length > 0 && (
           <div className="fade-in" style={{ transitionDelay: '0.3s' }}>
-            <div className="text-center mb-8">
-              <p className="text-gold text-sm font-medium tracking-widest uppercase">Hoạt động</p>
-              <h3 className="text-2xl font-serif font-semibold text-charcoal mt-1">Khoảnh Khắc Giảng Dạy</h3>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-              {otherImages.map((src, i) => (
-                <div
-                  key={i}
-                  className="overflow-hidden rounded-2xl shadow-sm group cursor-pointer"
-                >
+            <div className="grid grid-cols-3 gap-3">
+              {/* 6 ảnh đầu: 2 hàng × 3 cột */}
+              {otherImages.slice(0, 6).map((src, i) => (
+                <div key={i} className="overflow-hidden rounded-2xl shadow-sm group cursor-pointer">
                   <img
                     src={src}
                     alt={`Hoạt động giảng dạy ${i + 1}`}
-                    className="w-full h-44 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
               ))}
+              {/* Ảnh cuối: full width */}
+              {otherImages[6] && (
+                <div className="col-span-3 overflow-hidden rounded-2xl shadow-sm group cursor-pointer">
+                  <img
+                    src={otherImages[6]}
+                    alt="Hoạt động giảng dạy 7"
+                    className="w-full h-56 object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              )}
             </div>
           </div>
         )}

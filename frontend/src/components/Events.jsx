@@ -97,38 +97,6 @@ export default function Events() {
           </a>
         )}
 
-        {/* 3-card grid */}
-        <div className="grid md:grid-cols-3 gap-6">
-          {rest.map((ev, i) => (
-            <a
-              key={ev.id}
-              href={ev.href}
-              className="group flex flex-col bg-cream rounded-2xl overflow-hidden shadow-sm
-                         hover:shadow-xl transition-all duration-400 fade-in card-hover"
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img src={ev.img} alt={ev.title}
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <span className={`absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full ${tagStyle[ev.tag] ?? 'bg-charcoal text-white'}`}>
-                  {ev.tag}
-                </span>
-              </div>
-              <div className="flex flex-col flex-1 p-6">
-                <p className="text-gold text-xs font-medium tracking-widest uppercase mb-2">{ev.date}</p>
-                <h3 className="font-serif text-lg font-bold text-charcoal mb-2 group-hover:text-gold transition-colors duration-200 leading-snug flex-1">
-                  {ev.title}
-                </h3>
-                <p className="text-gray-500 text-xs leading-relaxed mb-4 line-clamp-2">{ev.desc}</p>
-                <span className="inline-flex items-center gap-1.5 text-gold text-xs font-medium">
-                  Xem thêm
-                  <span className="group-hover:translate-x-1 transition-transform duration-200 inline-block">→</span>
-                </span>
-              </div>
-            </a>
-          ))}
-        </div>
 
       </div>
     </section>
