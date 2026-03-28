@@ -20,9 +20,9 @@ const pricingData = [
     duration: '45 phút / buổi',
     note: null,
     rows: [
-      { label: 'Cơ bản', session: '800.000đ', course: '8.000.000đ' },
-      { label: 'Luyện thi chuyên nghiệp', session: '1.000.000đ', course: '10.000.000đ' },
-      { label: 'Luyện biểu diễn', session: '1.000.000đ', course: '10.000.000đ' },
+      { label: 'Cơ bản', session: '600.000đ', course: '6.000.000đ' },
+      { label: 'Luyện thi chuyên nghiệp', session: '800.000đ', course: '8.000.000đ' },
+      { label: 'Luyện biểu diễn', session: '800.000đ', course: '8.000.000đ' },
     ],
     courseNote: 'Khóa 10 buổi',
   },
