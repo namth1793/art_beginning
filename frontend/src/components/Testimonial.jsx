@@ -83,13 +83,16 @@ export default function Testimonial() {
         </div>
 
         {/* Divider */}
-        <div className="flex items-center gap-4 mb-12 fade-in">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-          <span className="text-gold text-sm font-medium tracking-widest uppercase">
-            Các giảng viên thuộc các trường đào tạo âm nhạc hàng đầu Việt Nam như Học viện Âm nhạc Quốc gia Việt Nam, Trường ĐH Hà Nội.... Chuyên rèn
-            luyện kỹ năng trở thành nghệ sĩ chuyên nghiệp, Các lớp ôn thi
-          </span>
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent via-gold/30 to-transparent" />
+        <div className="mb-10 fade-in text-center">
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+            <span className="text-gold text-xs font-semibold tracking-widest uppercase whitespace-nowrap">Đội ngũ giảng viên</span>
+            <div className="h-px flex-1 bg-gradient-to-l from-transparent via-gold/30 to-transparent" />
+          </div>
+          <p className="text-gray-500 text-sm leading-relaxed max-w-2xl mx-auto px-4">
+            Các giảng viên thuộc các trường đào tạo âm nhạc hàng đầu Việt Nam như Học viện Âm nhạc Quốc gia Việt Nam, Trường ĐH Hà Nội.
+            Chuyên rèn luyện kỹ năng trở thành nghệ sĩ chuyên nghiệp và các lớp ôn thi.
+          </p>
         </div>
 
         {/* Lưới ảnh đội ngũ */}

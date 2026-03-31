@@ -24,7 +24,7 @@ export default function About() {
           <img
             src={aboutImg}
             alt="Không gian học tập tại Art Beginning Vocal Academy"
-            className="relative rounded-3xl shadow-2xl w-full h-[520px] object-cover"
+            className="relative rounded-3xl shadow-2xl w-full h-72 md:h-[520px] object-cover"
           />
           {/* Experience badge */}
           <div className="absolute -bottom-6 -right-6 bg-charcoal rounded-2xl p-6 shadow-2xl hidden md:block">

@@ -83,12 +83,12 @@ export default function Hero() {
         </div>
 
         {/* Floating stats bar */}
-        <div className="mt-16 fade-in visible" style={{ transitionDelay: '0.55s' }}>
-          <div className="inline-flex bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl divide-x divide-white/15 overflow-hidden">
+        <div className="mt-12 fade-in visible" style={{ transitionDelay: '0.55s' }}>
+          <div className="inline-flex flex-wrap justify-center bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl overflow-hidden">
             {floatingStats.map((s, i) => (
-              <div key={i} className="px-6 py-4 text-center">
-                <p className="font-serif text-xl font-bold text-gold">{s.value}</p>
-                <p className="text-white/60 text-xs mt-0.5">{s.label}</p>
+              <div key={i} className="px-5 sm:px-7 py-3 sm:py-4 text-center border-r last:border-r-0 border-white/15">
+                <p className="font-serif text-base sm:text-xl font-bold text-gold">{s.value}</p>
+                <p className="text-white/60 text-[10px] sm:text-xs mt-0.5 whitespace-nowrap">{s.label}</p>
               </div>
             ))}
           </div>

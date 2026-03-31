@@ -102,7 +102,8 @@ export default function TuitionSchedule() {
         </div>
 
         {/* ── PRICING TABLE ── */}
-        <div className="fade-in rounded-2xl border border-gray-200 overflow-hidden shadow-sm" style={{ transitionDelay: '0.1s' }}>
+        <div className="fade-in rounded-2xl border border-gray-200 shadow-sm overflow-x-auto" style={{ transitionDelay: '0.1s' }}>
+        <div className="min-w-[600px]">
 
           {/* Column headers */}
           <div className="grid grid-cols-5 bg-charcoal text-white text-xs font-semibold">
@@ -202,7 +203,8 @@ export default function TuitionSchedule() {
               Đăng ký học thử miễn phí
             </a>
           </div>
-        </div>
+        </div>{/* end min-w */}
+        </div>{/* end overflow-x-auto */}
 
         {/* ── LỊCH HỌC ── */}
         <div className="mt-16 fade-in" style={{ transitionDelay: '0.2s' }}>

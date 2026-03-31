@@ -1,18 +1,21 @@
 import { useState } from 'react'
 
 const courses = [
-  'Khóa Cơ Bản (3 tháng)',
-  'Khóa Nâng Cao (6 tháng)',
-  'Lớp 1-1 Cá Nhân',
-  'Lớp Thiếu Nhi (6–12 tuổi)',
-  'Lớp Thiếu Niên (13–17 tuổi)',
+  'Lớp nhóm (5 học viên / lớp)',
+  'Lớp nhóm (3 học viên / lớp)',
+  'Lớp nhóm (2 học viên / lớp)',
+  'Lớp 1:1 – Cơ bản',
+  'Lớp 1:1 – Luyện thi chuyên nghiệp',
+  'Lớp 1:1 – Luyện biểu diễn',
+  'Giảng viên đặc biệt – PGS. TS Nguyễn Thị Tân Nhàn',
+  'Giảng viên đặc biệt – TS. Trần Thị Thu Hà',
 ]
 
 const perks = [
-  'Buổi học thử hoàn toàn miễn phí',
+  'Học thử miễn phí 1 buổi, không ràng buộc',
   'Giảng viên đánh giá giọng hát cá nhân',
   'Tư vấn lộ trình học phù hợp',
-  'Không ràng buộc sau buổi thử',
+  'Liên hệ trong vòng 24 giờ sau đăng ký',
 ]
 
 export default function RegistrationForm() {
@@ -63,10 +66,10 @@ export default function RegistrationForm() {
           <p className="section-subtitle">Bắt đầu ngay hôm nay</p>
           <h2 className="font-serif text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
             Đăng ký học thử<br />
-            <span className="text-gold-gradient">miễn phí</span>
+            <span className="text-gold-gradient">miễn phí 1 buổi</span>
           </h2>
           <p className="text-white/55 leading-relaxed mb-10 text-sm">
-            Điền thông tin bên cạnh và chúng tôi sẽ liên hệ bạn trong vòng 24 giờ để sắp xếp buổi học thử.
+            Trung tâm tặng bạn <strong className="text-white/80">1 buổi học thử hoàn toàn miễn phí</strong> — không cần thanh toán trước, không ràng buộc. Điền thông tin và chúng tôi sẽ liên hệ trong vòng 24 giờ.
           </p>
 
           {/* Perks */}
