@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 
 const slides = [
-  { src: '/hình_1.jpg', alt: 'Art Beginning Vocal Academy' },
-  { src: '/hình_2.jpg', alt: 'Art Beginning - học viên luyện tập' },
-  { src: '/hình_3.jpg', alt: 'Art Beginning - sân khấu chuyên nghiệp' },
+  { src: '/hinh_1.jpg', alt: 'Art Beginning Vocal Academy' },
+  { src: '/hinh_2.jpg', alt: 'Art Beginning - học viên luyện tập' },
+  { src: '/hinh_3.jpg', alt: 'Art Beginning - sân khấu chuyên nghiệp' },
 ]
 
 const floatingStats = [

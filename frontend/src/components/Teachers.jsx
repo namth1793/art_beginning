@@ -1,5 +1,3 @@
-import imgTanNhan from '../assets/giao_vien/tan_nhan.jpg'
-import imgThuHa from '../assets/giao_vien/thu_ha.jpg'
 import img3 from '../assets/giao_vien/z7635884412239_95a95dd5a729b6602c0a38c687c46c75.jpg'
 import img4 from '../assets/giao_vien/z7635884465172_e077ccd6943aae9e5926fe87b6b6bbb8.jpg'
 import img5 from '../assets/giao_vien/z7635884488834_7a58c12aabfeea9cc6c63541f8862356.jpg'
@@ -17,23 +15,6 @@ import img16 from '../assets/giao_vien/z7673264898279_9fc6f2affa3ba9e3018670646f
 import img17 from '../assets/giao_vien/z7673264910251_23d00823e4846e795a772a22a735b2ee.jpg'
 import img18 from '../assets/giao_vien/z7673264910552_ddcd848f1530dca93acb116e2be99f90.jpg'
 
-// ─── 2 giảng viên đặc biệt ───────────────────────────────────────────────────
-const featured = [
-  {
-    img: imgTanNhan,
-    name: 'PGS. TS Nguyễn Thị Tân Nhàn',
-    title: 'Trưởng khoa Thanh nhạc',
-    org: 'Học viện Âm nhạc Quốc gia Việt Nam',
-  },
-  {
-    img: imgThuHa,
-    name: 'TS. Trần Thị Thu Hà',
-    title: 'Trưởng khoa Nghệ thuật',
-    org: 'Trường Đại học Sư phạm Hà Nội',
-  },
-]
-
-// ─── Đội ngũ giảng viên còn lại ─────────────────────────────────────────────
 const team = [img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18]
 
 export default function Teachers() {
@@ -48,43 +29,6 @@ export default function Teachers() {
           <p className="text-gray-500 max-w-xl mx-auto mt-4 text-sm leading-relaxed">
             Đội ngũ giảng viên giàu kinh nghiệm, được đào tạo bài bản tại các học viện âm nhạc hàng đầu Việt Nam.
           </p>
-        </div>
-
-        {/* Giảng viên đặc biệt */}
-        <div className="grid sm:grid-cols-2 gap-8 mb-14">
-          {featured.map((t, i) => (
-            <div
-              key={i}
-              className="fade-in bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col"
-              style={{ transitionDelay: `${i * 0.15}s` }}
-            >
-              <div className="relative h-80 overflow-hidden">
-                <img
-                  src={t.img}
-                  alt={t.name}
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <span className="bg-gold text-white text-xs font-semibold px-3 py-1.5 rounded-full tracking-wide">
-                    Giảng viên đặc biệt
-                  </span>
-                </div>
-              </div>
-              <div className="p-6 flex-1 flex flex-col justify-center">
-                <h3 className="font-serif text-xl font-bold text-charcoal leading-snug mb-1">{t.name}</h3>
-                <p className="text-gold font-medium text-sm mb-0.5">{t.title}</p>
-                <p className="text-gray-400 text-xs">{t.org}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Divider */}
-        <div className="flex items-center gap-4 mb-12">
-          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-          <span className="text-gold text-sm font-medium tracking-widest uppercase">Đội ngũ giảng viên</span>
-          <div className="h-px flex-1 bg-gradient-to-l from-transparent via-gold/30 to-transparent" />
         </div>
 
         {/* Lưới ảnh đội ngũ */}
