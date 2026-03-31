@@ -5,6 +5,7 @@ import Testimonial from './components/Testimonial'
 import Statistics from './components/Statistics'
 import About from './components/About'
 import Events from './components/Events'
+import Teachers from './components/Teachers'
 import TuitionSchedule from './components/TuitionSchedule'
 import RegistrationForm from './components/RegistrationForm'
 import Footer from './components/Footer'
@@ -29,6 +30,7 @@ export default function App() {
       <Statistics />
       <About />
       <Events />
+      <Teachers />
       <TuitionSchedule />
       <RegistrationForm />
       <Footer />

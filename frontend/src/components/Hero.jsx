@@ -1,23 +1,57 @@
+import { useEffect, useState } from 'react'
+
+const slides = [
+  { src: '/hình_1.jpg', alt: 'Art Beginning Vocal Academy' },
+  { src: '/hình_2.jpg', alt: 'Art Beginning - học viên luyện tập' },
+  { src: '/hình_3.jpg', alt: 'Art Beginning - sân khấu chuyên nghiệp' },
+]
+
 const floatingStats = [
-  { value: '500+', label: 'Học viên' },
-  { value: '10+', label: 'Năm kinh nghiệm' },
-  { value: '100%', label: 'Hài lòng' },
+  { value: 'Trên 1.000+', label: 'Học viên theo học' },
+  { value: '15 năm', label: 'Đào tạo âm nhạc' },
+  { value: '100%', label: 'Học viên hài lòng' },
 ]
 
 export default function Hero() {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(prev => (prev + 1) % slides.length)
+    }, 5500)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
     <section id="hero" className="relative h-screen min-h-[680px] flex items-center justify-center overflow-hidden">
 
-      {/* Background */}
+      {/* Carousel background */}
       <div className="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1600&auto=format&fit=crop&q=80"
-          alt="Biểu diễn thanh nhạc tại Art Beginning"
-          className="w-full h-full object-cover scale-105"
-        />
+        {slides.map((slide, i) => (
+          <img
+            key={i}
+            src={slide.src}
+            alt={slide.alt}
+            className="absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-[2000ms] ease-in-out"
+            style={{ opacity: i === current ? 1 : 0 }}
+          />
+        ))}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
-        {/* subtle gold vignette */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(0,0,0,0.4)_100%)]" />
+      </div>
+
+      {/* Carousel dots */}
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            className={`h-2 rounded-full transition-all duration-300 ${
+              i === current ? 'bg-gold w-6' : 'bg-white/40 w-2 hover:bg-white/60'
+            }`}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
       </div>
 
       {/* Content */}
@@ -29,22 +63,22 @@ export default function Hero() {
         </div>
 
         <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 fade-in visible" style={{ transitionDelay: '0.1s' }}>
-          Hát bài hát<br />
-          <em className="not-italic text-gold-gradient">bạn yêu thích</em>
+          Art Beginning –<br />
+          <em className="not-italic text-gold-gradient">Khởi đầu hành trình<br className="hidden md:block" /> âm nhạc của bạn</em>
         </h1>
 
         <p className="text-lg md:text-xl text-white/70 mb-12 font-light leading-relaxed max-w-xl mx-auto fade-in visible" style={{ transitionDelay: '0.25s' }}>
-          Lộ trình cá nhân hóa · Giảng viên hàng đầu · Cơ hội biểu diễn thực tế
+          Học theo lộ trình riêng • Giảng viên chuyên nghiệp • Trải nghiệm sân khấu thật
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center fade-in visible" style={{ transitionDelay: '0.4s' }}>
           <a href="#register" className="btn-gold text-base px-9 py-4 shadow-[0_8px_30px_rgba(201,169,110,0.5)]">
             Đăng ký học thử miễn phí
           </a>
-          <a href="#courses"
+          <a href="#tuition"
             className="border border-white/40 text-white backdrop-blur-sm px-9 py-4 rounded-full text-base font-medium
                        hover:border-gold hover:text-gold transition-all duration-300">
-            Xem khóa học
+            Khám phá lộ trình học
           </a>
         </div>
 
@@ -52,8 +86,8 @@ export default function Hero() {
         <div className="mt-16 fade-in visible" style={{ transitionDelay: '0.55s' }}>
           <div className="inline-flex bg-white/10 backdrop-blur-md border border-white/15 rounded-2xl divide-x divide-white/15 overflow-hidden">
             {floatingStats.map((s, i) => (
-              <div key={i} className="px-8 py-4 text-center">
-                <p className="font-serif text-2xl font-bold text-gold">{s.value}</p>
+              <div key={i} className="px-6 py-4 text-center">
+                <p className="font-serif text-xl font-bold text-gold">{s.value}</p>
                 <p className="text-white/60 text-xs mt-0.5">{s.label}</p>
               </div>
             ))}
