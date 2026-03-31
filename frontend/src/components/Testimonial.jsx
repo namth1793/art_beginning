@@ -1,5 +1,5 @@
-import thuHaImg from '../assets/giao_vien/thu_ha.jpg'
 import tanNhanImg from '../assets/giao_vien/tan_nhan.jpg'
+import thuHaImg from '../assets/giao_vien/thu_ha.jpg'
 
 const otherModules = import.meta.glob('../assets/giao_vien/z*.jpg', { eager: true })
 const otherImages = Object.values(otherModules).map(m => m.default)
@@ -85,7 +85,10 @@ export default function Testimonial() {
         {/* Divider */}
         <div className="flex items-center gap-4 mb-12 fade-in">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
-          <span className="text-gold text-sm font-medium tracking-widest uppercase">Đội ngũ giảng viên</span>
+          <span className="text-gold text-sm font-medium tracking-widest uppercase">
+            Các giảng viên thuộc các trường đào tạo âm nhạc hàng đầu Việt Nam như Học viện Âm nhạc Quốc gia Việt Nam, Trường ĐH Hà Nội.... Chuyên rèn
+            luyện kỹ năng trở thành nghệ sĩ chuyên nghiệp, Các lớp ôn thi
+          </span>
           <div className="h-px flex-1 bg-gradient-to-l from-transparent via-gold/30 to-transparent" />
         </div>
 

@@ -2,10 +2,10 @@ import aboutImg from '../assets/about.jpg'
 
 const values = [
   { num: '01', text: 'Phương pháp giảng dạy cá nhân hóa theo từng học viên' },
-  { num: '02', text: 'Giảng viên với hơn 10 năm kinh nghiệm biểu diễn và đào tạo' },
+  { num: '02', text: 'Giảng viên với hơn 15 năm kinh nghiệm biểu diễn và đào tạo' },
   { num: '03', text: 'Môi trường học tập thân thiện, sáng tạo và chuyên nghiệp' },
   { num: '04', text: 'Lộ trình học bài bản từ cơ bản đến nâng cao' },
-  { num: '05', text: 'Cơ hội biểu diễn thực tế qua các sự kiện định kỳ' },
+  { num: '05', text: 'Cơ hội biểu diễn thực tế' },
 ]
 
 export default function About() {
