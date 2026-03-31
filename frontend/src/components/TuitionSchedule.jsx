@@ -44,8 +44,8 @@ const pricingData = [
       {
         label: 'PGS. TS Nguyễn Thị Tân Nhàn',
         sub: 'Trưởng khoa Thanh nhạc – Học viện Âm nhạc Quốc gia Việt Nam',
-        session: '3.000.000đ',
-        course: 18000000,
+        session: '5.000.000đ',
+        course: 30000000,
         img: imgTanNhan,
       },
       {
