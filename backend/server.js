@@ -31,8 +31,6 @@ db.exec(`
   );
 `);
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const allowedOrigins = process.env.FRONTEND_URL
   ? [process.env.FRONTEND_URL]
   : ['http://localhost:5173'];
@@ -56,6 +54,7 @@ app.post('/api/register', async (req, res) => {
 
   // Gửi email thông báo (không chặn response nếu lỗi)
   if (process.env.RESEND_API_KEY && process.env.NOTIFY_EMAIL) {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     resend.emails.send({
       from: 'Art Beginning <onboarding@resend.dev>',
       to: process.env.NOTIFY_EMAIL,
