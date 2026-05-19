@@ -59,7 +59,7 @@ export default function Hero() {
         {/* Top badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-10 fade-in visible">
           <span className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-          <span className="text-gold font-medium tracking-[0.3em] uppercase text-xs">Học Viện Thanh Nhạc</span>
+          <span className="text-gold font-medium tracking-[0.3em] uppercase text-xs">Trung Tâm Nghệ Thuật</span>
         </div>
 
         <h1 className="font-serif text-5xl md:text-7xl font-bold leading-tight mb-6 fade-in visible" style={{ transitionDelay: '0.1s' }}>
