@@ -81,7 +81,7 @@ export default function Footer() {
             <div>
               <p className="text-white/25 text-[10px] uppercase tracking-wider mb-1.5">Địa chỉ</p>
               <p className="text-white/50 text-sm leading-relaxed">
-                Nhà số một ngách 19 ngõ 137, phường Việt Hưng, thành phố Hà Nội
+                Số nhà 1/19/137, TDP 8, phường Việt Hưng, thành phố Hà Nội
               </p>
             </div>
             <div>

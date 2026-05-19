@@ -85,7 +85,7 @@ app.post('/api/register', async (req, res) => {
             </div>
           </div>
           <div style="padding:14px 32px;background:#f9fafb;border-top:1px solid #f3f4f6;font-size:12px;color:#9ca3af;">
-            Art Beginning • Nhà số một ngách 19 ngõ 137, phường Việt Hưng, Hà Nội
+            Art Beginning • Số nhà 1/19/137, TDP 8, phường Việt Hưng, thành phố Hà Nội
           </div>
         </div>
       `,
