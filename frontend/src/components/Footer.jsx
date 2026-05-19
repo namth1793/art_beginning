@@ -44,7 +44,7 @@ export default function Footer() {
         <div>
           <img src={logo} alt="Art Beginning Vocal Academy" className="h-20 w-auto object-contain mb-5" />
           <p className="text-white/40 text-sm leading-relaxed mb-7">
-            Học viện Thanh Nhạc Art Beginning – Nơi âm nhạc bắt đầu từ trái tim.
+            Trung tâm nghệ thuật Art Beginning – Nơi âm nhạc bắt đầu từ trái tim.
             Đào tạo thanh nhạc bài bản, chuyên nghiệp cho mọi lứa tuổi.
           </p>
           <div className="flex gap-2.5 flex-wrap">

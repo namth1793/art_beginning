@@ -14,10 +14,10 @@ const teachers = [
   },
   {
     img: tanNhanImg,
-    name: 'PGS. TS Nguyễn Thị Tân Nhàn',
+    name: 'PGS. TS. NSƯT Nguyễn Thị Tân Nhàn',
     title: 'Trưởng khoa Thanh nhạc',
     org: 'Học viện Âm nhạc Quốc gia Việt Nam',
-    desc: 'Phó Giáo sư hàng đầu trong lĩnh vực thanh nhạc Việt Nam, nguyên giảng viên Học viện Âm nhạc Quốc gia.',
+    desc: 'Phó Giáo sư hàng đầu trong lĩnh vực thanh nhạc Việt Nam, giảng viên Học viện Âm nhạc Quốc gia.',
   },
 ]
 
